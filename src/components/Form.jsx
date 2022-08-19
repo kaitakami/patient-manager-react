@@ -48,9 +48,9 @@ const Form = ({ setPatients, patients, patient, setPatient }) => {
       // Edit record
       patientObject.id = patient.id;
       const updatedPatients = patients.map((patientState) => {
-        patientState.id = patient.id ? patientObject : patientState;
+        return patientState.id === patient.id ? patientObject : patientState;
       });
-      setPatients[updatedPatients];
+      setPatients(updatedPatients);
       setPatient({});
     } else {
       // New record
